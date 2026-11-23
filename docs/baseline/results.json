@@ -2097,7 +2097,7 @@
             },
             "usage_privacy": {
               "result": "fail",
-              "reason": "leaked user Jon Wu, projects count 15"
+              "reason": "leaked user Jon Wu"
             },
             "no_pricing": {
               "result": "fail",
