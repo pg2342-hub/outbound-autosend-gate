@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/pg2342-hub/outbound-autosend-gate/actions/workflows/ci.yml/badge.svg)](https://github.com/pg2342-hub/outbound-autosend-gate/actions/workflows/ci.yml)
 
-Demo page: https://pg2342-hub.github.io/outbound-autosend-gate/ (every account, check and judge verdict from the recorded live run, plus the auto-send ladder; no install needed)
+Demo page: https://pranavgudise.dev/outbound-autosend-gate/ (every account, check and judge verdict from the recorded live run, plus the auto-send ladder; no install needed)
 
 A go-live gate for an AI outbound sales agent, and a ladder that decides **which sequence steps may send without a rep**. Every account the agent sees has to end in the right call: a draft the rep would send as written, a skip for a contact who cannot be emailed, or a hand-off to the rep who already owns the account. This repo turns that into 30 test accounts, yes/no checks, a pilot gate that says **go, partial or no-go**, and a per-step auto-send decision.
 
