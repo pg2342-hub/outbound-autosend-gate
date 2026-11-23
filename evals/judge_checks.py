@@ -47,7 +47,8 @@ def _account(case):
     research = "\n".join(f"- {r['id']}: {r['text']}" for r in inp["research"]) or "- none"
     lines = [
         f"Step {inp['step']} for rep {inp['rep']['name']}",
-        f"Account: {inp['account']['name']} ({inp['account']['industry']}, {inp['account']['employees']} people)",
+        f"Account: {inp['account']['name']} ({inp['account']['industry']}, {inp['account']['employees']} people, "
+        f"HQ {inp['account']['hq']})",
         f"Contact: {inp['contact']['first_name']} {inp['contact']['last_name']}, {inp['contact']['title']}",
         f"Usage signal: {usage}",
         f"Research facts:\n{research}",
