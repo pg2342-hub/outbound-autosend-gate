@@ -4,39 +4,31 @@
     "name": "first email",
     "cases": 24,
     "decision": "rep approval",
-    "critical": [
-      "f04 grounded"
-    ],
+    "critical": [],
     "misses": [
       "f01 run 1: send_unedited",
       "f01 run 2: send_unedited",
       "f01 run 3: send_unedited",
       "f02 run 1: send_unedited",
-      "f02 run 3: send_unedited",
       "f03 run 1: send_unedited",
       "f03 run 2: send_unedited",
       "f03 run 3: send_unedited",
       "f04 run 1: send_unedited",
-      "f04 run 2: send_unedited",
-      "f04 run 3: grounded, send_unedited",
+      "f04 run 3: send_unedited",
       "f05 run 1: send_unedited",
       "f05 run 2: send_unedited",
       "f05 run 3: send_unedited",
       "f06 run 1: send_unedited",
       "f06 run 2: send_unedited",
-      "f06 run 3: send_unedited",
       "f07 run 1: send_unedited",
-      "f07 run 2: send_unedited",
-      "f07 run 3: send_unedited",
       "f08 run 1: send_unedited",
       "f08 run 2: send_unedited",
       "f08 run 3: send_unedited",
       "f09 run 1: send_unedited",
-      "f09 run 2: send_unedited",
       "f09 run 3: send_unedited",
+      "f10 run 1: send_unedited",
       "f10 run 2: send_unedited",
       "f11 run 2: send_unedited",
-      "f11 run 3: send_unedited",
       "f12 run 1: send_unedited",
       "f12 run 2: send_unedited",
       "f12 run 3: send_unedited",
@@ -46,11 +38,11 @@
       "g08 run 1: send_unedited",
       "g08 run 2: send_unedited",
       "g08 run 3: send_unedited",
-      "t01 run 1: send_unedited",
+      "t01 run 1: action",
       "t01 run 2: send_unedited",
-      "t01 run 3: send_unedited",
+      "t01 run 3: action",
       "t02 run 1: send_unedited",
-      "t02 run 2: send_unedited"
+      "t02 run 3: send_unedited"
     ]
   },
   {
@@ -58,21 +50,17 @@
     "name": "follow-up email",
     "cases": 4,
     "decision": "rep approval",
-    "critical": [
-      "u04 grounded"
-    ],
+    "critical": [],
     "misses": [
-      "u01 run 1: send_unedited",
       "u01 run 2: send_unedited",
       "u01 run 3: send_unedited",
-      "u02 run 1: send_unedited",
       "u02 run 2: send_unedited",
       "u03 run 1: send_unedited",
-      "u03 run 2: send_unedited",
+      "u03 run 2: length, send_unedited",
       "u03 run 3: send_unedited",
       "u04 run 1: send_unedited",
       "u04 run 2: send_unedited",
-      "u04 run 3: grounded, send_unedited"
+      "u04 run 3: send_unedited"
     ]
   },
   {
@@ -83,9 +71,7 @@
     "critical": [],
     "misses": [
       "u05 run 2: send_unedited",
-      "u05 run 3: send_unedited",
-      "u06 run 2: send_unedited",
-      "u06 run 3: send_unedited"
+      "u06 run 2: send_unedited"
     ]
   }
 ]
