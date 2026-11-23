@@ -42,7 +42,7 @@ class FakeMessages:
 def test_live_then_replay(tmp_path, monkeypatch):
     fake = FakeMessages()
     client = types.SimpleNamespace(beta=types.SimpleNamespace(messages=fake))
-    monkeypatch.setitem(sys.modules, "anthropic", types.SimpleNamespace(Anthropic=lambda: client))
+    monkeypatch.setitem(sys.modules, "anthropic", types.SimpleNamespace(Anthropic=lambda **kw: client))
     monkeypatch.setenv("GOLIVE_LIVE", "1")
     monkeypatch.setattr(agent_mod, "AGENT_TAPE", Tape(tmp_path / "agent.jsonl"))
     monkeypatch.setattr(agent_mod, "_live", None)
