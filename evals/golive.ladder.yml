@@ -1,0 +1,7 @@
+# Recorded run, every check including the judge's "send unedited": the input to the auto-send ladder
+# (scripts/ladder.py). Its gate decision is not used; the ladder decides per step. No API key needed.
+cases: cases.yml
+checks: judge_checks:checks
+agent: agent:recorded_agent
+gate: gate.yml
+runs: 3

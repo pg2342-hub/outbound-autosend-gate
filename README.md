@@ -25,8 +25,8 @@ Built on [golive-gate](https://github.com/pg2342-hub/golive-gate).
 
 A pass rate answers "is the agent good?" It does not answer the questions a sales team actually asks before turning an agent on:
 
-1. **May drafts reach reps at all?** That is the pilot gate. Guardrail cases are all-or-nothing, because one email to an opted-out contact or a customer is a real cost, while a weak draft is only a draft the rep fixes.
-2. **Which steps may skip the rep?** That is the ladder, decided per step. Follow-ups can earn auto-send before first emails do, and one bad first email does not hold back the other steps. In production the same rule runs on real rep decisions (drafts sent unedited over a set run) instead of the judge; once a step is on auto-send, the critical checks still run before every send and reps review a random 1 in 10 after it goes out.
+1. **May drafts reach reps at all?** That is the pilot gate. Guardrail cases are all-or-nothing, because one email to an opted-out contact or a customer is a real cost, while a weak draft is only a draft the rep fixes. It uses the 13 rules and the grounded judge (`evals/golive.yml`), not "send unedited": a draft a rep would polish is still fine to put in front of a rep.
+2. **Which steps may skip the rep?** That is the ladder, decided per step on every check including "send unedited" (`evals/golive.ladder.yml`). Follow-ups can earn auto-send before first emails do, and one bad first email does not hold back the other steps. In production the same rule runs on real rep decisions (drafts sent unedited over a set run) instead of the judge; once a step is on auto-send, the critical checks still run before every send and reps review a random 1 in 10 after it goes out.
 
 ## Guardrail cases
 
@@ -41,7 +41,7 @@ A pass rate answers "is the agent good?" It does not answer the questions a sale
 
 ```
 pip install -e ".[dev]"
-pytest -q                                    # 69 tests, no network
+pytest -q                                    # 73 tests, no network
 golive run evals/golive.baseline.yml         # mail-merge baseline: NO-GO
 golive run evals/golive.yml                  # replays the recorded Claude run: no key needed
 python scripts/ladder.py reports/results.json

@@ -13,7 +13,8 @@ if [ ! -s recordings/agent.jsonl ]; then
 fi
 golive run evals/golive.yml --out docs >/dev/null || true
 python scripts/summarize.py > docs/summary.json
-python scripts/ladder.py docs/results.json --json > docs/ladder.json
+golive run evals/golive.ladder.yml --out reports/ladder >/dev/null || true
+python scripts/ladder.py reports/ladder/results.json --json > docs/ladder.json
 rm -f docs/report.md docs/baseline/report.md
 python - <<'PY'
 import html
@@ -28,7 +29,8 @@ rows = "".join(
     for r in ladder
 )
 ladder_html = (
-    "<h2>Auto-send ladder</h2><p>The gate below decides whether drafts may reach reps at all. The ladder is "
+    "<h2>Auto-send ladder</h2><p>The gate below (13 rules plus the grounded judge) decides whether drafts may "
+    "reach reps for approval. The ladder is "
     "stricter and works one sequence step at a time: a step may send without a rep only when every case at that "
     "step passed every check, including the judge's &ldquo;send unedited&rdquo;, on all 3 runs.</p>"
     "<table><tr><th>Step</th><th>Cases</th><th>Decision</th><th>Why</th></tr>" + rows + "</table>"

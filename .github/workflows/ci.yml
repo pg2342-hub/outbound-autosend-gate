@@ -39,5 +39,5 @@ jobs:
         if: hashFiles('recordings/agent.jsonl') != ''
         run: |
           pip install -e . -q
-          golive run evals/golive.yml --out reports/recorded > /dev/null || true
-          python scripts/ladder.py reports/recorded/results.json >> "$GITHUB_STEP_SUMMARY"
+          golive run evals/golive.ladder.yml --out reports/ladder > /dev/null || true
+          python scripts/ladder.py reports/ladder/results.json >> "$GITHUB_STEP_SUMMARY"
