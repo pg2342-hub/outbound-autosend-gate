@@ -1,0 +1,17 @@
+# The seller: a fictional cloud platform for deploying web apps. Every fact the agent may use about it.
+seller: Harborline
+what_it_is: A cloud platform that builds, previews and deploys web apps from a git push.
+plans:
+  starter: Free for personal projects; one member per project.
+  team: Paid plan for companies; shared projects, roles, SSO, usage alerts and support.
+  enterprise: Custom contract; SOC 2 Type II report, audit logs, 99.99% uptime SLA, dedicated support.
+value_props:
+  - id: v1
+    text: Every pull request gets its own preview link, so reviewers see the change before it ships.
+  - id: v2
+    text: Teams on Team can manage members, roles and SSO in one place instead of sharing personal accounts.
+  - id: v3
+    text: Usage alerts warn before a project hits its bandwidth or build-minute limit.
+  - id: v4
+    text: Enterprise includes a SOC 2 Type II report and audit logs for security reviews.
+pricing_rule: The agent never quotes a price, a discount, free credits or a trial extension. A rep handles all of that.

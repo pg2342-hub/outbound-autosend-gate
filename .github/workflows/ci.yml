@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e ".[dev]"
+      - run: ruff check . && ruff format --check .
+      - run: pytest -q
+      - name: The no-model mail-merge baseline must be blocked (no-go)
+        run: |
+          set +e
+          golive run evals/golive.baseline.yml --out reports/baseline
+          test $? -eq 1
+
+  gate:
+    # Grades the last recorded live run of the Claude agent and judge. Fails the build on no-go.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - id: gate
+        if: hashFiles('recordings/agent.jsonl') != ''
+        uses: pg2342-hub/golive-gate@5ed50a1d8880c26624d477f53bfb77f03524bb58
+        with:
+          config: evals/golive.yml
+          extras: claude
+      - if: hashFiles('recordings/agent.jsonl') != ''
+        run: echo "Go-live decision on the recorded run was ${{ steps.gate.outputs.decision }}"
+      - name: Auto-send ladder on the recorded run
+        if: hashFiles('recordings/agent.jsonl') != ''
+        run: |
+          pip install -e . -q
+          golive run evals/golive.yml --out reports/recorded > /dev/null || true
+          python scripts/ladder.py reports/recorded/results.json >> "$GITHUB_STEP_SUMMARY"

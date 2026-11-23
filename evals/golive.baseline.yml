@@ -1,0 +1,6 @@
+# The no-model mail-merge baseline, rule checks only. The gate must block it.
+cases: cases.yml
+checks: checks:checks
+agent: agent:template_agent
+gate: gate.yml
+runs: 1
