@@ -47,7 +47,8 @@ class ClaudeOutbound:
         if client is None:
             import anthropic
 
-            client = anthropic.Anthropic()
+            # retry rate limits and overloads for longer than the default 2 tries, so a 90-call run finishes
+            client = anthropic.Anthropic(max_retries=6)
         self.client = client
         self.model = model
         self.effort = effort
