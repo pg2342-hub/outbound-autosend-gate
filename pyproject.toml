@@ -32,3 +32,6 @@ ignore = ["E402"]
 [tool.ruff.lint.isort]
 known-first-party = ["outbound"]
 known-third-party = ["golive_gate"]
+
+[tool.ruff.lint.per-file-ignores]
+"scripts/build_demo.py" = ["E501"]  # the page template
